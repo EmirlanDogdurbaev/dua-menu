@@ -58,9 +58,10 @@ const Cards = () => {
                         width: "90%",
                         margin: "0 auto",
                         display: "flex",
-                        justifyContent: "flex-start",
+                        justifyContent: "space-around",
                         flexWrap: "wrap",
                         overflow: "hidden",
+
                     }}>
                         {selectedCategory.meals.map((meal) => (
                             <li key={meal.id}>
