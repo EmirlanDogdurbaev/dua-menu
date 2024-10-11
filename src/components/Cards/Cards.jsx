@@ -53,7 +53,7 @@ const Cards = () => {
             </section>
 
             {selectedCategory && selectedCategory.meals.length > 0 && (
-                <div style={{height: '100%', padding: "30px 0 60px"} } className={classes.cards_cont}>
+                <div style={{height: '100%', padding: "30px 0 60px"}} className={classes.cards_cont}>
                     <ul className={classes.cont}>
                         {selectedCategory.meals.map((meal) => (
                             <li key={meal.id}>
