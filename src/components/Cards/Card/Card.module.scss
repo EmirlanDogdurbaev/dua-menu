@@ -1,0 +1,39 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  align-items: center;
+
+  img {
+    margin-bottom: -80px;
+    z-index: 3;
+    border-radius: 80px;
+    width: 250px;
+    height: 290px;
+  }
+
+  aside {
+    width: 322px;
+    height: 176px;
+    text-align: center;
+    background-color: #EAEBEC;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 70px;
+    gap: 0px;
+
+    p {
+      padding: 10px 0;
+      color: #FF5900;
+      font-size: 18px;
+      font-weight: bold;
+
+    }
+    h4 {
+      padding: 4px 0;
+      margin-top: -13px;
+    }
+  }
+}
