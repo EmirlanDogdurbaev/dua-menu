@@ -34,7 +34,7 @@ const Footer = () => {
                 </ul>
             </article>
             <article>
-                    <a>
+                    <a href='https://maps.app.goo.gl/bgBBNmr8BEBdqiMk6'>
                         <img src={location} alt="location"/>
                         <h3>Location</h3>
                     </a>
@@ -46,7 +46,7 @@ const Footer = () => {
             </article>
 
             <article>
-                   <a href='http://google.com/' target='_blank' rel='noopener noreferrer'>
+                   <a href='https://www.instagram.com/dua.prime.italian.cuisine/' >
                         <img src={instagram} alt="insta"/>
                         <h3>Instagram</h3>
                     </a>
