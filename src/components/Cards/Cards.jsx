@@ -15,7 +15,7 @@ const Cards = () => {
 
     useEffect(() => {
         if (categories.length > 0) {
-            setSelectedCategory(categories.find(category => category.id === 1));
+            setSelectedCategory(categories.find(category => category.id === 2));
         }
     }, [categories]);
 
@@ -53,16 +53,8 @@ const Cards = () => {
             </section>
 
             {selectedCategory && selectedCategory.meals.length > 0 && (
-                <div style={{height: '100%', padding: "30px 0 60px"}}>
-                    <ul style={{
-                        width: "90%",
-                        margin: "0 auto",
-                        display: "flex",
-                        justifyContent: "space-around",
-                        flexWrap: "wrap",
-                        overflow: "hidden",
-
-                    }}>
+                <div style={{height: '100%', padding: "30px 0 60px"} } className={classes.cards_cont}>
+                    <ul className={classes.cont}>
                         {selectedCategory.meals.map((meal) => (
                             <li key={meal.id}>
                                 <Card title={meal.name} price={meal.price} image={meal.picture}/>
