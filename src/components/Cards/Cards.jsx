@@ -1,8 +1,13 @@
 import Card from "./Card/Card.jsx";
 import classes from "./Cards.module.scss";
+import styles from "./CategorySlider.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {fetchCategoriesWithMeals} from "../../store/slices/getCategories.js";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import {Navigation} from 'swiper/modules';
 
 const Cards = () => {
     const dispatch = useDispatch();
@@ -15,7 +20,7 @@ const Cards = () => {
 
     useEffect(() => {
         if (categories.length > 0) {
-            setSelectedCategory(categories.find(category => category.id === 2));
+            setSelectedCategory(categories[0]); // Выбор первой категории по умолчанию
         }
     }, [categories]);
 
@@ -38,18 +43,31 @@ const Cards = () => {
                     <h1>Menu</h1>
                     <span className={classes.small_line}></span>
                 </div>
-                <ul className={classes.categories}>
-                    {categories.map((category) => (
-                        <li key={category.id}>
-                            <button
-                                onClick={() => handleCategoryClick(category)}
-                                className={selectedCategory && selectedCategory.id === category.id ? classes.active : ''}
-                            >
-                                {category.name}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+
+                <div className={styles.category_slider}>
+                    <Swiper
+                        slidesPerView="auto"
+                        spaceBetween={15}
+                        navigation={{
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        }}
+                        modules={[Navigation]}
+                        className={styles.category_swiper}
+                        grabCursor={true}
+                    >
+                        {categories.map((category) => (
+                            <SwiperSlide key={category.id} className={styles.categorySlide}>
+                                <button
+                                    className={`${styles.categoryButton} ${selectedCategory && selectedCategory.id === category.id ? styles.active : ''}`}
+                                    onClick={() => handleCategoryClick(category)}
+                                >
+                                    {category.name}
+                                </button>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
             </section>
 
             {selectedCategory && selectedCategory.meals.length > 0 && (

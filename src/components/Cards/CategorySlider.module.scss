@@ -1,0 +1,65 @@
+.category_slider {
+  width: 100%;
+  padding: 10px 0;
+  position: relative; /* Позволяет использовать абсолютное позиционирование для стрелок */
+
+  .category_swiper {
+    padding: 0 40px; /* Оставляем отступ для стрелок */
+  }
+
+  .categorySlide {
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .categoryButton {
+    padding: 10px 20px;
+    background-color: #f0cfcf;
+    border-radius: 20px;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: #c2a2a2;
+    }
+
+    &.active {
+      background-color: #466848;
+      color: white;
+    }
+  }
+
+  .swiper-button-prev1,
+  .swiper-button-next1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    &::after {
+      font-size: 16px; /* Размер стрелок */
+      color: white; /* Цвет стрелок */
+    }
+  }
+
+  .swiper-button-prev {
+    left: 10px; /* Позиция слева */
+  }
+
+  .swiper-button-next {
+    right: 10px; /* Позиция справа */
+  }
+}
