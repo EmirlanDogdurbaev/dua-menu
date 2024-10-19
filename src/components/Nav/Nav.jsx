@@ -1,15 +1,49 @@
 import classes from './Nav.module.scss';
-import logo from '../../assets/images/logo.png';
+import {Link} from "react-router-dom";
 
 const Nav = () => {
     return (
-        <>
-            <nav className={classes.nav}>
-                <img src={logo} alt="logotype" height={170}/>
-            </nav>
-            <div className={classes.line}>
-            </div>
-        </>
+
+        <nav className={classes.nav}>
+            <ul>
+
+                <li>
+                    <Link to="/">
+                        About us
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/">
+                        Events </Link>
+                </li>
+                <li>
+                    <Link to="/">
+                        Menu
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/">
+                        Reviews
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/">
+                        Gallery
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/">
+                        Contact
+                    </Link>
+                </li>
+
+                <li>
+                    <Link to="/">
+                        Reserve
+                    </Link>
+                </li>
+            </ul>
+        </nav>
     )
 }
 

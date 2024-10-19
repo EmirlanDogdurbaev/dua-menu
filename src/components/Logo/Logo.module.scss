@@ -1,0 +1,15 @@
+.Logo {
+  width: 480px;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    width: 480px;
+    height: 514.214px;
+    flex-shrink: 0;
+  }
+}
