@@ -4,6 +4,7 @@ import Header from "../Header/Header.jsx";
 import classes from "./Layout.module.scss";
 import {Logo} from "../Logo/Logo.jsx";
 import Events from "../Events/Events.jsx";
+import Cards from "../Cards/Cards.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Layout = () => {
@@ -18,7 +19,7 @@ const Layout = () => {
             </div>
             <main>
                 <Events/>
-
+                <Cards/>
             </main>
         </div>
     )

@@ -15,8 +15,6 @@ const Event = () => {
                 authentic Italian flavors and meticulously selected Zabiha Halal meats. Nestled in the heart of
                 culinary innovation, DUA isn’t just a restaurant; it’s a destination for those who appreciate the
                 finer nuances of Italian cuisine complemented by the purity and ethics o...</p>
-
-
                 <Link to="/">
                     Read
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">

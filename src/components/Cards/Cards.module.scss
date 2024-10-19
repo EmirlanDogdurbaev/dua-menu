@@ -18,6 +18,16 @@
       align-items: center;
       gap: 10px;
 
+      h1 {
+        color: var(--basic-text-100, #042F36);
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+      }
+
       .small_line {
         height: 2px;
         background-color: rgba(4, 47, 54, 0.4);
@@ -57,10 +67,10 @@
 
 
   .cont {
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     overflow: hidden;
     gap: 20px;
@@ -68,8 +78,8 @@
 
   @media (min-width: 1024px) {
     .cont {
-      width: 75%;
-      justify-content: space-between;
+      width: 90%;
+      justify-content: flex-start;
       align-items: flex-start;
     }
   }
@@ -81,8 +91,6 @@
       column-gap: 20px;
     }
   }
-
-
 
 
 }
