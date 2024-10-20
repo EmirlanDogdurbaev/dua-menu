@@ -1,0 +1,36 @@
+
+.swiper-button-prev-categories,
+.swiper-button-next-categories {
+
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  background-color: rgba(224, 29, 29, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  &::after {
+    font-size: 16px; /* Размер стрелок */
+    color: white; /* Цвет стрелок */
+
+  }
+
+
+}
+
+.swiper-button-prev-categories {
+  left: -50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-button-next-categories {
+  right: -50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

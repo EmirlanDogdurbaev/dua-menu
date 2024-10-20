@@ -5,10 +5,12 @@
 
   .title {
     text-align: center;
+
     h1 {
       font-size: 2.5rem;
       margin: 0;
     }
+
     .small_line {
       width: 50px;
       height: 3px;
@@ -63,4 +65,45 @@
       }
     }
   }
+}
+
+
+.category_slider {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0;
+  position: relative; /* Позволяет использовать абсолютное позиционирование для стрелок */
+
+  .category_swiper {
+    padding: 0 40px; /* Оставляем отступ для стрелок */
+  }
+
+  .categorySlide {
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .categoryButton {
+    padding: 10px 20px;
+    background-color: #f0cfcf;
+    border-radius: 20px;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: #c2a2a2;
+    }
+
+    &.active {
+      background-color: #466848;
+      color: white;
+    }
+  }
+
+
 }
