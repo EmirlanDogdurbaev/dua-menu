@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .closeButton {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  .swiper {
+    width: 80%;
+    max-width: 800px;
+  }
+
+  img {
+    width: 452px;
+    height: 565px;
+  }
+}

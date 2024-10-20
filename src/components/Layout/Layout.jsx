@@ -6,6 +6,7 @@ import {Logo} from "../Logo/Logo.jsx";
 import Events from "../Events/Events.jsx";
 import Cards from "../Cards/Cards.jsx";
 import Reviews from "../Reviews/Reviews.jsx";
+import Gallery from "../Gallery/Gallery.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Layout = () => {
@@ -22,6 +23,7 @@ const Layout = () => {
                 <Events/>
                 <Cards/>
                 <Reviews/>
+                <Gallery/>
             </main>
         </div>
     )
