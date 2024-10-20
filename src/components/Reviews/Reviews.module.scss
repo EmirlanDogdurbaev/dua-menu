@@ -1,0 +1,50 @@
+.Reviews {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: lightblue;
+  align-items: center;
+  z-index: 2;
+  padding: 40px 0 20px;
+
+  section {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+      font-size: 28px;
+      text-transform: uppercase;
+
+    }
+
+    .line {
+      width: 180px !important;
+      height: 4px;
+      background-color: red;
+    }
+  }
+
+  .swiper_cont {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+
+
+  }
+
+  .box {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+}
+

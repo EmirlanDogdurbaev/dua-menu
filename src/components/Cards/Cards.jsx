@@ -1,19 +1,16 @@
-import Card from "./Card/Card.jsx";
-import classes from "./Cards.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { fetchCategoriesWithMeals } from "../../store/slices/getCategories.js";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-import "./swiperCategories.scss";
-
-import { Navigation } from 'swiper/modules';
+// Cards.jsx
+import  {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchCategoriesWithMeals} from '../../store/slices/getCategories.js';
+import classes from './Cards.module.scss';
+import './swiperCategories.scss';
+import LoadingError from "../UI/LoadingError/LoadingError.jsx";
+import CategorySlider from "../CategorySlider/CategorySlider.jsx";
+import MealsList from "../MealsList/MealsList.jsx";
 
 const Cards = () => {
     const dispatch = useDispatch();
-    const { categories, loading, error } = useSelector((state) => state.categories);
+    const {categories, loading, error} = useSelector((state) => state.categories);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     useEffect(() => {
@@ -22,7 +19,7 @@ const Cards = () => {
 
     useEffect(() => {
         if (categories.length > 0) {
-            setSelectedCategory(categories[0]);
+            setSelectedCategory(categories[1]);
         }
     }, [categories]);
 
@@ -30,60 +27,27 @@ const Cards = () => {
         setSelectedCategory(category);
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
-
     return (
         <main className={classes.cards}>
             <section>
                 <div className={classes.title}>
                     <h1>Menu</h1>
-                    <span className={classes.small_line}></span>
-                </div>
-
-                <div className={classes.category_slider}>
-                    <Swiper
-                        slidesPerView="auto"
-                        spaceBetween={15}
-                        navigation={{
-                            nextEl: '.swiper-button-next-categories',
-                            prevEl: '.swiper-button-prev-categories',
-                        }}
-                        modules={[Navigation]}
-                        className="categoriesSwiper"
-                        grabCursor={true}
-                    >
-                        {categories.map((category) => (
-                            <SwiperSlide key={category.id} className={classes.categorySlide}>
-                                <button
-                                    className={`${classes.categoryButton} ${selectedCategory && selectedCategory.id === category.id ? classes.active : ''}`}
-                                    onClick={() => handleCategoryClick(category)}
-                                >
-                                    {category.name}
-                                </button>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                    <div className="swiper-button-next-categories"> axaxax</div>
-                    <div className="swiper-button-prev-categories">xaxa</div>
+                    <div className={classes.small_line}></div>
                 </div>
             </section>
 
+            <LoadingError loading={loading} error={error}/>
+
+            {!loading && !error && (
+                <CategorySlider
+                    categories={categories}
+                    selectedCategory={selectedCategory}
+                    onSelectCategory={handleCategoryClick}
+                />
+            )}
+
             {selectedCategory && selectedCategory.meals.length > 0 && (
-                <div style={{ height: '100%', padding: "30px 0 60px" }} className={classes.cards_cont}>
-                    <ul className={classes.cont}>
-                        {selectedCategory.meals.map((meal) => (
-                            <li key={meal.id}>
-                                <Card title={meal.name} price={meal.price} image={meal.picture} />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <MealsList meals={selectedCategory.meals}/>
             )}
         </main>
     );

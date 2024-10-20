@@ -5,6 +5,7 @@
 
   .title {
     text-align: center;
+    padding-bottom: 30px;
 
     h1 {
       font-size: 2.5rem;
@@ -15,26 +16,11 @@
       width: 50px;
       height: 3px;
       background-color: #333;
-      margin: 10px auto;
+      margin: 20px auto 10px;
     }
   }
 
-  .cards_cont {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
 
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 0;
-    }
-
-    li {
-      list-style: none;
-    }
-  }
 }
 
 .categories {
@@ -65,45 +51,4 @@
       }
     }
   }
-}
-
-
-.category_slider {
-  width: 90%;
-  margin: 0 auto;
-  padding: 10px 0;
-  position: relative; /* Позволяет использовать абсолютное позиционирование для стрелок */
-
-  .category_swiper {
-    padding: 0 40px; /* Оставляем отступ для стрелок */
-  }
-
-  .categorySlide {
-    width: auto;
-    display: flex;
-    justify-content: center;
-  }
-
-  .categoryButton {
-    padding: 10px 20px;
-    background-color: #f0cfcf;
-    border-radius: 20px;
-    border: none;
-    color: #333;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: #c2a2a2;
-    }
-
-    &.active {
-      background-color: #466848;
-      color: white;
-    }
-  }
-
-
 }
