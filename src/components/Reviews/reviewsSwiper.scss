@@ -3,14 +3,15 @@
   padding-top: 10px;
 }
 
-.swiper-button-prev-events,
-.swiper-button-next-events {
+.swiper-button-prev-reviews,
+.swiper-button-next-reviews {
 
   z-index: 10;
   width: 40px;
   height: 40px;
-  background-color: rgba(252, 0, 113, 0.4); /* Полупрозрачный фон */
+  background-color: rgb(172, 185, 187); /* Полупрозрачный фон */
   border-radius: 50%;
+  border: none;
   color: rgba(19, 19, 19, 0.8);
   display: flex;
   align-items: center;
@@ -19,22 +20,27 @@
 
 }
 
-.swiper-button-prev-events {
+.swiper-button-prev-reviews {
   left: 47% !important;
   position: absolute;
   top: 30px;
   transform: translateY(-50%);
 
-  &::after {
-    color: red !important;
+  &:hover{
+    background-color: #647E82;
   }
+
 }
 
-.swiper-button-next-events {
+.swiper-button-next-reviews {
   right: 47% !important;
   position: absolute;
   top: 30px;
   transform: translateY(-50%);
+
+  &:hover{
+    background-color: #647E82;
+  }
 }
 
 // Общие стили для Swiper

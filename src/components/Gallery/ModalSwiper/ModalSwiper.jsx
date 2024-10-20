@@ -19,6 +19,7 @@ const ModalSwiper = ({ isOpen, images, initialIndex, onClose }) => {
                 modules={[Navigation]}
                 className={styles.swiper}
             >
+                {/* eslint-disable-next-line react/prop-types */}
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
                         <img src={image} alt={`Slide ${index + 1}`} />

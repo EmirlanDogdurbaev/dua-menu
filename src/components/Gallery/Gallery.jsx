@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import ModalSwiper from './ModalSwiper/ModalSwiper';
-import classes from './Gallery.module.scss';
 import GalleryImage from "./GalleryImage/GalleryImage.jsx";
+import classes from './Gallery.module.scss';
 
 const images = [
     'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg',

@@ -4,8 +4,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: lightblue;
+  background-image: url("../../assets/images/reviews_bg.svg") !important;
   align-items: center;
+  background-size: cover;
   z-index: 2;
   padding: 40px 0 20px;
 
@@ -17,15 +18,17 @@
     gap: 20px;
 
     h2 {
+      color: white;
       font-size: 28px;
       text-transform: uppercase;
 
     }
 
     .line {
-      width: 180px !important;
+      width: 170px !important;
       height: 4px;
-      background-color: red;
+      border-radius: 5px;
+      background-color: white;
     }
   }
 

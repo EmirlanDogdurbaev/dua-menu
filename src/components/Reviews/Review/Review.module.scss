@@ -1,6 +1,17 @@
 .Review {
-  background-color: transparent;
   width: 372px;
   height: 423px;
-  border: 1px solid green;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #EAEBEC;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
