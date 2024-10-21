@@ -5,12 +5,16 @@
   z-index: 10;
   width: 35px;
   height: 35px;
-  background-color: rgba(224, 29, 29, 0.3);
+  background-color: #EAEBEC;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+
+  &:hover {
+    background-color: #ACB9BB;
+  }
 
   &::after {
     font-size: 16px; /* Размер стрелок */
