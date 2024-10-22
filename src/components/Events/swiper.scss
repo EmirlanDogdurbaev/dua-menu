@@ -2,7 +2,19 @@
 .eventsSwiper {
   position: relative;
   padding-top: 10px;
+  height: 80%;
 
+}
+
+.eventsSwiper-item{
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
 
 }
 
@@ -31,6 +43,20 @@
   &::after{
     color: red !important;
   }
+
+  @media (max-width: 1024px) {
+    left: 44% !important;
+  }
+}
+
+.test{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    height: 80vh !important;
+  }
 }
 
 .swiper-button-next-events {
@@ -38,6 +64,10 @@
   position: absolute;
   top: 30px;
   transform: translateY(-50%);
+
+  @media (max-width: 1024px) {
+    right: 44% !important;
+  }
 }
 
 // Общие стили для Swiper
