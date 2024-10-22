@@ -135,6 +135,10 @@
 
   .burgerMenu {
     display: block;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--basic-text-white, #FFF);
+    box-shadow: 0px 0px 10px 0px rgba(4, 47, 54, 0.15), 0px 241px 80px 0px rgba(4, 47, 54, 0.00), 0px 154px 70px 0px rgba(4, 47, 54, 0.03), 0px 87px 60px 0px rgba(4, 47, 54, 0.10), 0px 39px 45px 0px rgba(4, 47, 54, 0.17), 0px 10px 30px 0px rgba(4, 47, 54, 0.20);
 
     .burgerIcon {
       width: 25px;
