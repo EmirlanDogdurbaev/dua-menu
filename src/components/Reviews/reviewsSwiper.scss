@@ -6,6 +6,13 @@
     height: 60vh !important;
     width: 90% !important;
   }
+
+
+  @media (max-width: 770px) {
+    height: 72vh !important;
+    width: 90% !important;
+  }
+
 }
 
 .swiper-button-prev-reviews,
@@ -39,6 +46,12 @@
     left: 45.5% !important;
   }
 
+  @media (max-width: 770px) {
+    left: 44.5% !important;
+  }
+  @media (max-width: 390px) {
+    left: 37% !important;
+  }
 }
 
 .swiper-button-next-reviews {
@@ -53,6 +66,13 @@
 
   @media (max-width: 1024px) {
     right: 45.5% !important;
+  }
+  @media (max-width: 1024px) {
+    right: 44.5% !important;
+  }
+
+  @media (max-width: 390px) {
+    right: 37% !important;
   }
 }
 

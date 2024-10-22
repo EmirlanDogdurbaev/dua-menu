@@ -48,7 +48,7 @@ const Reviews = () => {
                     modules={[Navigation, Pagination]}
                     className="reviewsSwiper"
                     breakpoints={{
-                        768: {
+                        770: {
                             slidesPerView: 2,
                         },
                         1024: {
