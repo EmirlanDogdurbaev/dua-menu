@@ -1,6 +1,11 @@
 .reviewsSwiper {
   position: relative;
   padding-top: 10px;
+
+  @media (max-width: 1024px) {
+    height: 60vh !important;
+    width: 90% !important;
+  }
 }
 
 .swiper-button-prev-reviews,
@@ -26,8 +31,12 @@
   top: 30px;
   transform: translateY(-50%);
 
-  &:hover{
+  &:hover {
     background-color: #647E82;
+  }
+
+  @media (max-width: 1024px) {
+    left: 45.5% !important;
   }
 
 }
@@ -38,8 +47,12 @@
   top: 30px;
   transform: translateY(-50%);
 
-  &:hover{
+  &:hover {
     background-color: #647E82;
+  }
+
+  @media (max-width: 1024px) {
+    right: 45.5% !important;
   }
 }
 

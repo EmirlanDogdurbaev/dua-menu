@@ -30,11 +30,6 @@ const Reviews = () => {
         setReviews(fetchedReviews);
     }, []);
 
-    const groupedReviews = [];
-    for (let i = 0; i < reviews.length; i += 3) {
-        groupedReviews.push(reviews.slice(i, i + 3));
-    }
-
     return (
         <div className={classes.Reviews}>
             <section>
@@ -51,14 +46,22 @@ const Reviews = () => {
                     }}
                     pagination={true}
                     modules={[Navigation, Pagination]}
-                    className="reviewsSwiper">
-                    {groupedReviews.map((reviewsGroup, index) => (
-                        <SwiperSlide key={index}>
-                            <div className={classes.box}>
-                                {reviewsGroup.map(review => (
-                                    <Review key={review.id} data={review}/>
-                                ))}
-                            </div>
+                    className="reviewsSwiper"
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 2,
+                        },
+                        1200: {
+                            slidesPerView: 3,
+                        },
+                    }}
+                >
+                    {reviews.map((review) => (
+                        <SwiperSlide key={review.id}>
+                            <Review data={review}/>
                         </SwiperSlide>
                     ))}
                 </Swiper>

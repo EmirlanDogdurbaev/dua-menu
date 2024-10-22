@@ -19,7 +19,7 @@ const Cards = () => {
 
     useEffect(() => {
         if (categories.length > 0) {
-            setSelectedCategory(categories[1]);
+            setSelectedCategory(categories[0]);
         }
     }, [categories]);
 
