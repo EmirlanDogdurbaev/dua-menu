@@ -13,5 +13,27 @@
     height: 100%;
   }
 
+}
 
+
+@media (max-width: 1024px) {
+  .card{
+    width: 341px !important;
+
+
+    &:hover{
+      transform: scale(1);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .card{
+    width: 371px !important;
+    height: 582px !important;
+
+
+    &:hover{
+      transform: scale(1);
+    }
+  }
 }

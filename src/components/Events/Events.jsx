@@ -59,7 +59,9 @@ const Events = () => {
                                 {eventGroup.map(event => (
                                     <Event key={event.id} data={event}/>
                                 ))}
+
                             </div>
+
                         </SwiperSlide>
                     ))}
                 </Swiper>
