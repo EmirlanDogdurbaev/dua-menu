@@ -42,7 +42,7 @@ const Events = () => {
                 <div className={classes.line}/>
             </section>
 
-            <div style={{height: "100vh", width: "100%", position: "relative"}} className="test">
+            <div  className="test">
                 <Swiper
                     direction="horizontal"
                     navigation={{
@@ -55,11 +55,12 @@ const Events = () => {
                     {groupedEvents.map((eventGroup, index) => (
                         <SwiperSlide key={index}>
                             <div
-                                className="eventsSwiper-item">
+                                className="eventsSwiper-item" >
                                 {eventGroup.map(event => (
                                     <Event key={event.id} data={event}/>
                                 ))}
 
+                                {/*<Event/>*/}
                             </div>
 
                         </SwiperSlide>
