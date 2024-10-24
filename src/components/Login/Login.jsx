@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import cl from "./Login.module.scss";
 import { login } from "../../store/slices/authSlice.js";
 
@@ -31,8 +31,8 @@ const Login = () => {
                 <h2>Войти</h2>
 
                 <input
-                    type="text" // Change input type to text for username
-                    placeholder="Имя пользователя" // Update placeholder
+                    type="text"
+                    placeholder="user name"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
@@ -46,7 +46,6 @@ const Login = () => {
                     <button onClick={handleLogin} disabled={loading}>
                         {loading ? "Загрузка..." : "Войти"}
                     </button>
-                    <Link to="/signup">Регистрация</Link>
                 </span>
                 {error && <p>Error: {error}</p>}
             </div>

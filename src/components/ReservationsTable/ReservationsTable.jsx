@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations, deleteReservation } from "../../store/slices/reservationsSlice";
-import styles from './ReservationsTable.module.scss'; // Import SCSS module
+import styles from './ReservationsTable.module.scss';
 
 const ReservationsTable = () => {
     const dispatch = useDispatch();
@@ -44,7 +44,13 @@ const ReservationsTable = () => {
 
     const handleDelete = (id) => {
         // Dispatch the delete action
-        dispatch(deleteReservation(id));
+        dispatch(deleteReservation(id)).then((response) => {
+            if (response.error) {
+                console.log("Error deleting reservation:", response.error.message);
+            } else {
+                console.log("Reservation deleted successfully");
+            }
+        });
     };
 
     if (status === 'loading') {
@@ -68,6 +74,7 @@ const ReservationsTable = () => {
                 />
                 <select value={monthFilter} onChange={handleMonthChange} className={styles.monthSelect}>
                     <option value="">All Months</option>
+                    {/* Month options */}
                     <option value="0">January</option>
                     <option value="1">February</option>
                     <option value="2">March</option>
@@ -95,7 +102,6 @@ const ReservationsTable = () => {
                     <th>Guests</th>
                     <th>Comment</th>
                     <th>Actions</th>
-                    {/* New Actions Header */}
                 </tr>
                 </thead>
                 <tbody>

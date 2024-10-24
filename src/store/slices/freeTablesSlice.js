@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import {API_URI} from "../api/api.js";
 
 export const fetchFreeTables = createAsyncThunk('freeTables/fetchFreeTables', async (date) => {
-    const response = await axios.get(`http://127.0.0.1:8000/orders/free-tables/${date}/`);
+    const response = await axios.get(`${API_URI}/orders/free-tables/${date}/`);
     return response.data;
 
 
