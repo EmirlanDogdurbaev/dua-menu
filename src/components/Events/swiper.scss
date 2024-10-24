@@ -82,6 +82,10 @@
   @media (max-width: 1024px) {
     left: 44% !important;
   }
+  @media (max-width: 450px) {
+    right: 30% !important;
+    top: 20px;
+  }
   @media (max-width: 390px) {
     left: 37% !important;
     top: 20px;
@@ -98,6 +102,10 @@
 
   @media (max-width: 1024px) {
     right: 44% !important;
+  }
+  @media (max-width: 450px) {
+    right: 32% !important;
+    top: 20px;
   }
 
   @media (max-width: 390px) {

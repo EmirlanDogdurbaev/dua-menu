@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import GalleryImage from "./GalleryImage/GalleryImage.jsx";
-import classes from './Gallery.module.scss';
-import ModalSwiper from "./ModalSwiper/ModalSwiper.jsx";
-import { Navigation, Pagination } from "swiper/modules";
-import { useDispatch, useSelector } from 'react-redux';
-import './gallerySwiper.scss';
+import {Navigation, Pagination} from "swiper/modules";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {fetchGallery} from "../../store/slices/gallerySlice.js";
+import classes from "./Gallery.module.scss";
+import {Swiper, SwiperSlide} from "swiper/react";
+import ModalSwiper from "./ModalSwiper/ModalSwiper.jsx";
+
+import "./gallerySwiper.scss"
 
 const Gallery = () => {
     const dispatch = useDispatch();
@@ -16,8 +17,11 @@ const Gallery = () => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
     const handleCardClick = (index) => {
-        setSelectedImageIndex(index);
-        setModalOpen(true);
+        // Открываем модальное окно только если не мобильное устройство
+        if (!isMobileView) {
+            setSelectedImageIndex(index);
+            setModalOpen(true);
+        }
     };
 
     const handleCloseModal = () => {
@@ -37,11 +41,10 @@ const Gallery = () => {
 
     useEffect(() => {
         if (status === 'idle') {
-            dispatch(fetchGallery()); // Запрашиваем галерею при монтировании
+            dispatch(fetchGallery());
         }
     }, [dispatch, status]);
 
-    // Обработка состояний загрузки и ошибок
     if (status === 'loading') {
         return <p>Loading...</p>;
     }
@@ -82,10 +85,9 @@ const Gallery = () => {
                             {images.map((image, index) => (
                                 <SwiperSlide key={image.id}>
                                     <GalleryImage
-                                        image={image.picture} // Используйте поле изображения из Redux
-                                        title={image.title} // Используйте название изображения
-                                        onClick={() => handleCardClick(index)} // Добавьте обработчик клика для мобильного просмотра
-                                    />
+                                        image={image.picture}
+                                        title={image.title}
+                                        onClick={() => handleCardClick(index)} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -98,20 +100,22 @@ const Gallery = () => {
                         {images.map((image, index) => (
                             <GalleryImage
                                 key={image.id}
-                                image={image.picture} // Используйте поле изображения из Redux
-                                title={image.title} // Используйте название изображения
-                                onClick={() => handleCardClick(index)} // Добавьте обработчик клика для настольного просмотра
+                                image={image.picture}
+                                title={image.title}
+                                onClick={() => handleCardClick(index)}
                             />
                         ))}
                     </div>
                 )}
 
-                <ModalSwiper
-                    isOpen={isModalOpen}
-                    images={images.map(img => img.picture)} // Передайте только ссылки на изображения
-                    initialIndex={selectedImageIndex}
-                    onClose={handleCloseModal}
-                />
+                {!isMobileView && (
+                    <ModalSwiper
+                        isOpen={isModalOpen}
+                        images={images.map(img => img.picture)}
+                        initialIndex={selectedImageIndex}
+                        onClose={handleCloseModal}
+                    />
+                )}
             </div>
         </div>
     );

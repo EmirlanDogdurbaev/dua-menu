@@ -1,7 +1,7 @@
 import classes from "./Footer.module.scss";
 import clock from "../../assets/images/clock.svg"
 import location from "../../assets/images/location.png"
-import instagram from "../../assets/images/instagram.png"
+import instagram from "../../assets/images/inst.svg"
 
 const Footer = () => {
     return (<footer className={classes.footer} id="contact">
@@ -50,9 +50,9 @@ const Footer = () => {
             </article>
 
             <article>
-                   <a href='https://www.instagram.com/dua.prime.italian.cuisine/' >
+                   <a href='https://www.instagram.com/dua.prime.italian.cuisine/' className={classes.insta} >
                         <img src={instagram} alt="insta"/>
-                        <h3>Instagram</h3>
+
                     </a>
             </article>
         </div>

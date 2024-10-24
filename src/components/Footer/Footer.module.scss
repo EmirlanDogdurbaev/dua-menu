@@ -6,7 +6,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #042F36;
+  background-image:url("../../assets/images/footer.svg") ;
+  background-size: cover;
+  background-position: center;
 
   .container {
     display: flex;
@@ -45,11 +47,14 @@
         margin-bottom: 10px;
         color: white;
 
+
+
         h3 {
           color: white;
           font-size: 18px;
         }
       }
+
 
       ul {
         width: 100%;
