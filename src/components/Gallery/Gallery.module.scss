@@ -2,7 +2,7 @@
   height: 100vh;
   width: 100%;
   padding: 20px 0;
-
+overflow:hidden ;
   .inner_cont {
     height: 100%;
     display: flex;
@@ -34,14 +34,14 @@
     .cards {
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
 
     }
   }
 }
 
 .slider {
-  width: 80%; // Задаем ширину для слайдера на мобильных экранах
+  width: 80%;
   .swiper {
     width: 100%;
     height: 100%;

@@ -75,9 +75,12 @@ const Gallery = () => {
                             loop={true}
                             breakpoints={{
                                 770: {
-                                    slidesPerView: 2.5,
+                                    slidesPerView: 2,
                                 },
                                 1024: {
+                                    slidesPerView: 3,
+                                },
+                                1280: {
                                     slidesPerView: 3,
                                 },
                             }}

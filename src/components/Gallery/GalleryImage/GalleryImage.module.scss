@@ -9,13 +9,23 @@
     transform: scale(1.15);
   }
   img {
-    width: 100%;
+    width: 380px;
     height: 100%;
   }
 
 }
 
 
+@media (max-width: 1290px) {
+  .card{
+    width: 341px !important;
+
+
+    &:hover{
+      transform: scale(1);
+    }
+  }
+}
 @media (max-width: 1024px) {
   .card{
     width: 341px !important;
