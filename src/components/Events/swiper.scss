@@ -12,15 +12,26 @@
   position: relative;
 
   @media (max-width: 1440px) {
-    height: 70vh !important;
+    height: 80vh !important;
+  }
+  @media (max-width: 1280px) {
+    height: 100vh !important;
+    gap: 40px;
+    justify-content: center;
   }
   @media (max-width: 1024px) {
-    height: 82vh !important;
+    height: 110vh !important;
     gap: 40px;
     justify-content: center;
   }
   @media (max-width: 768px) {
     height: 115vh !important;
+  }
+  @media (max-width: 450px) {
+    height: 160vh !important;
+
+    //align-items: flex-start !important;
+    justify-content: flex-start !important;
   }
   @media (max-width: 390px) {
     height: 170vh !important;
@@ -34,8 +45,13 @@
   flex-direction: column;
   justify-content: center;
 
+  @media (max-width: 1280px) {
+    height: 100vh !important;
+    gap: 40px;
+    justify-content: center;
+  }
   @media (max-width: 1024px) {
-    height: 75vh !important;
+    height: 110vh !important;
     gap: 40px;
     justify-content: center;
   }
@@ -43,8 +59,14 @@
   @media (max-width: 768px) {
     height: 115vh !important;
     overflow: visible;
+    gap: 20px;
   }
+  @media (max-width: 450px) {
+    height: 140vh !important;
 
+    //align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
 
   @media (max-width: 390px) {
     gap: 20px;
@@ -85,6 +107,7 @@
   @media (max-width: 450px) {
     right: 30% !important;
     top: 20px;
+    display: none;
   }
   @media (max-width: 390px) {
     left: 37% !important;
@@ -100,12 +123,14 @@
   top: 30px;
   transform: translateY(-50%);
 
+
   @media (max-width: 1024px) {
     right: 44% !important;
   }
   @media (max-width: 450px) {
     right: 32% !important;
     top: 20px;
+    display: none;
   }
 
   @media (max-width: 390px) {
@@ -115,7 +140,7 @@
 }
 
 .eventsSwiper-item {
-  overflow: hidden;
+  //overflow: hidden;
   height: 100%;
   width: 100%;
 }

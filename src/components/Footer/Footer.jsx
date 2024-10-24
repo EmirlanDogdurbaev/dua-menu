@@ -1,6 +1,6 @@
 import classes from "./Footer.module.scss";
 import clock from "../../assets/images/clock.svg"
-import location from "../../assets/images/location.png"
+import map from "../../assets/images/map.svg"
 import instagram from "../../assets/images/inst.svg"
 
 const Footer = () => {
@@ -39,7 +39,7 @@ const Footer = () => {
             </article>
             <article>
                     <a href='https://maps.app.goo.gl/bgBBNmr8BEBdqiMk6'>
-                        <img src={location} alt="location"/>
+                        <img src={map} alt="location"/>
                         <h3>Location</h3>
                     </a>
                 <ul>

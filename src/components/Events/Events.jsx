@@ -57,6 +57,7 @@ const Events = () => {
                     }}
                     modules={[Navigation, Pagination]}
                     className="eventsSwiper"
+                    pagination={{ clickable: true }}
                 >
                     {groupedEvents.map((eventGroup, index) => (
                         <SwiperSlide key={index}>
