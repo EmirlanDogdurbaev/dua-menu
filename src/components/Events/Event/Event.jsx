@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 const Event = (props) => {
 
-    console.log(props)
 
     const mainPictureUrl = props.data.pictures.length > 0 ? props.data.pictures[0].picture : null;
 

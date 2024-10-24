@@ -13,7 +13,6 @@ import './swiper.scss';
 import {Navigation, Pagination} from 'swiper/modules';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchEvents} from "../../store/slices/getEvents.js";
-import log from "eslint-plugin-react/lib/util/log.js";
 
 const Events = () => {
     const dispatch = useDispatch();
@@ -42,7 +41,6 @@ const Events = () => {
     }
 
 
-    console.log(groupedEvents)
     return (
         <div className={classes.Events} id="events">
             <section>

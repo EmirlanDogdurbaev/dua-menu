@@ -1,0 +1,191 @@
+.reservationsTable {
+  width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .section {
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+
+      .dropdown {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+
+    thead {
+      background-color: #f0f0f0;
+
+      th {
+        padding: 10px;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+        &:hover {
+          background-color: #e1cfff;
+          color: #4f219b;
+        }
+
+        &.highlightedRow {
+          background-color: #e8eaff;
+        }
+
+        td {
+          padding: 12px;
+          border-bottom: 1px solid #e0e0e0;
+          word-wrap: break-word;
+
+          .commentCell {
+            max-width: 140px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+          }
+
+          .trashIcon {
+            color: #e74c3c;
+            cursor: pointer;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+
+          .readButton {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.filterSection {
+  display: flex;
+  margin-bottom: 1rem;
+
+  .filterInput {
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .filterButton {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  .monthSelect {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background-color: darkred;
+  }
+}
+
+@media (max-width: 1024px) {
+  .reservationsTable {
+    padding: 15px;
+    .table {
+      tbody {
+        tr {
+          td {
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .reservationsTable {
+    padding: 10px;
+
+    .table {
+      tbody {
+        tr {
+          td {
+            padding: 8px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+
+  .filterSection {
+    flex-direction: column;
+    .filterInput {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .reservationsTable {
+    padding: 5px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .table {
+      tbody {
+        tr {
+          td {
+            padding: 6px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .filterButton, .deleteButton {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+}
