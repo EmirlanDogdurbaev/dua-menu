@@ -1,16 +1,17 @@
 import './App.css'
 import Layout from "./components/Layout/Layout.jsx";
 import {Route, Routes} from "react-router-dom";
+// import Reserve from "./components/Reserve/Reserve.jsx";
+import EventPage from "./components/EventPage/EventPage.jsx";
 
 function App() {
 
     return (
         <>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={X}/>
-                </Routes>
-            </Layout>
+          <Routes>
+              <Route path="/" element={<Layout />} />
+              <Route path="/event/:id" element={<EventPage/>} />
+          </Routes>
         </>
     )
 }
@@ -18,6 +19,3 @@ function App() {
 export default App
 
 
-export const X = () => {
-    return <h1>Hello World!</h1>;
-}

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './Reserve.module.scss';
+import { fetchFreeTables } from "../../store/slices/freeTablesSlice.js";
 import { resetReservationState, submitReservation } from "../../store/slices/reserveSlice.js";
 
 // Utility function to format date
@@ -28,6 +29,22 @@ const Reserve = ({ isOpen, onClose }) => {
 
     const dispatch = useDispatch();
     const { loading, success, error } = useSelector((state) => state.reservation);
+    const { freeTables, status } = useSelector((state) => state.freeTables); // Select free tables from state
+
+    // Fetch free tables when the modal opens or date changes
+    useEffect(() => {
+        if (isOpen) {
+            dispatch(fetchFreeTables(formatDate(formData.date)));
+        }
+    }, [dispatch, formData.date, isOpen]);
+
+    // Get available times based on free tables
+    const availableTimes = freeTables
+        .filter(table => table.free_tables >= formData.total_guests)
+        .map(table => ({
+            start: table.start_time,
+            end: table.end_time,
+        }));
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -45,10 +62,9 @@ const Reserve = ({ isOpen, onClose }) => {
             return;
         }
 
-        // Format the date before submitting
         const formattedData = {
             ...formData,
-            date: formatDate(formData.date), // Convert date to string in 'YYYY-MM-DD' format
+            date: formatDate(formData.date),
         };
 
         dispatch(submitReservation(formattedData));
@@ -76,6 +92,7 @@ const Reserve = ({ isOpen, onClose }) => {
                             placeholder="Your name"
                             value={formData.name}
                             onChange={handleChange}
+                            required
                         />
                         <input
                             type="email"
@@ -83,6 +100,7 @@ const Reserve = ({ isOpen, onClose }) => {
                             placeholder="Your email"
                             value={formData.email}
                             onChange={handleChange}
+                            required
                         />
                     </div>
 
@@ -92,6 +110,7 @@ const Reserve = ({ isOpen, onClose }) => {
                         placeholder="How can we contact you?"
                         value={formData.phone}
                         onChange={handleChange}
+                        required
                     />
 
                     <div className={styles.datePicker}>
@@ -100,22 +119,41 @@ const Reserve = ({ isOpen, onClose }) => {
                             onChange={handleDateChange}
                             value={formData.date}
                         />
-                        <p>Selected Date: {formData.date.toLocaleDateString()}</p>
                     </div>
 
                     <div className={styles.row}>
-                        <select name="start_order" value={formData.start_order} onChange={handleChange}>
-                            <option value="">choose a start time</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
+                        {/* Start Time Select */}
+                        <select
+                            name="start_order"
+                            value={formData.start_order}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">Choose a start time</option>
+                            {availableTimes.map((time, index) => (
+                                <option key={index} value={time.start}>{time.start}</option>
+                            ))}
                         </select>
-                        <select name="end_order" value={formData.end_order} onChange={handleChange}>
-                            <option value="">choose an end time</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
+
+                        {/* End Time Select */}
+                        <select
+                            name="end_order"
+                            value={formData.end_order}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">Choose an end time</option>
+                            {availableTimes
+                                .filter(time => !formData.start_order || time.end > formData.start_order)  // Filter end times to be later than start
+                                .map((time, index) => (
+                                    <option key={index} value={time.end}>{time.end}</option>
+                                ))
+                            }
                         </select>
                     </div>
 
+
+                    <label>Total guests</label>
                     <input
                         type="number"
                         name="total_guests"
@@ -123,8 +161,8 @@ const Reserve = ({ isOpen, onClose }) => {
                         value={formData.total_guests}
                         onChange={handleChange}
                         placeholder="Total guests"
+                        required
                     />
-
 
                     <textarea
                         name="comment"

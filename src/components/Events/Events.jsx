@@ -11,32 +11,40 @@ import 'swiper/css/pagination';
 import './swiper.scss';
 
 import {Navigation, Pagination} from 'swiper/modules';
+import {useDispatch, useSelector} from "react-redux";
+import {fetchEvents} from "../../store/slices/getEvents.js";
+import log from "eslint-plugin-react/lib/util/log.js";
 
 const Events = () => {
-    const [events, setEvents] = useState([]);
+    const dispatch = useDispatch();
+    const events = useSelector((state) => state.events.events);
+    const status = useSelector((state) => state.events.status);
+    const error = useSelector((state) => state.events.error);
 
     useEffect(() => {
-        const fetchedEvents = [
-            {id: 1, title: 'Event 1'},
-            {id: 2, title: 'Event 2'},
-            {id: 3, title: 'Event 3'},
-            {id: 4, title: 'Event 4'},
-            {id: 5, title: 'Event 5'},
-            {id: 6, title: 'Event 6'},
-            {id: 7, title: 'Event 7'},
-            {id: 8, title: 'Event 8'},
-            {id: 9, title: 'Event 9'},
-        ];
-        setEvents(fetchedEvents);
-    }, []);
+        if (status === 'idle') {
+            dispatch(fetchEvents());
+        }
+    }, [status, dispatch]);
 
+    if (status === 'loading') {
+        return <p>Loading...</p>;
+    }
+
+    if (status === 'failed') {
+        return <p>Error: {error}</p>;
+    }
+
+    // Группировка событий по 3
     const groupedEvents = [];
     for (let i = 0; i < events.length; i += 3) {
         groupedEvents.push(events.slice(i, i + 3));
     }
 
+
+    console.log(groupedEvents)
     return (
-        <div className={classes.Events}>
+        <div className={classes.Events} id="events">
             <section>
                 <h2>Events</h2>
                 <div className={classes.line}/>
@@ -59,8 +67,6 @@ const Events = () => {
                                 {eventGroup.map(event => (
                                     <Event key={event.id} data={event}/>
                                 ))}
-
-                                {/*<Event/>*/}
                             </div>
 
                         </SwiperSlide>

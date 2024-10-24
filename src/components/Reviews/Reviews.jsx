@@ -11,27 +11,28 @@ import './reviewsSwiper.scss';
 
 import {Navigation, Pagination} from 'swiper/modules';
 import Review from "./Review/Review.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchReviews} from "../../store/slices/reviewsSlice.js";
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([]);
+    const dispatch = useDispatch();
+    const { reviews, status, error } = useSelector((state) => state.reviews); // Получаем данные из Redux
 
     useEffect(() => {
-        const fetchedReviews = [
-            {id: 1, title: 'Event 1'},
-            {id: 2, title: 'Event 2'},
-            {id: 3, title: 'Event 3'},
-            {id: 4, title: 'Event 4'},
-            {id: 5, title: 'Event 5'},
-            {id: 6, title: 'Event 6'},
-            {id: 7, title: 'Event 7'},
-            {id: 8, title: 'Event 8'},
-            {id: 9, title: 'Event 9'},
-        ];
-        setReviews(fetchedReviews);
-    }, []);
+        if (status === 'idle') {
+            dispatch(fetchReviews()); // Запрашиваем отзывы
+        }
+    }, [dispatch, status]);
 
+    if (status === 'loading') {
+        return <p>Loading...</p>;
+    }
+
+    if (status === 'failed') {
+        return <p>Error: {error}</p>;
+    }
     return (
-        <div className={classes.Reviews}>
+        <div className={classes.Reviews} id="reviews">
             <section>
                 <h2>Reviews</h2>
                 <div className={classes.line}/>
@@ -61,7 +62,7 @@ const Reviews = () => {
                 >
                     {reviews.map((review) => (
                         <SwiperSlide key={review.id}>
-                            <Review data={review}/>
+                            <Review data={review} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

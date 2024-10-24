@@ -1,38 +1,156 @@
 .modalOverlay {
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
-  right: 0;
-  bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  width: 100%;
+  height: 103vh;
+  //border: 1px salmon solid;
+
+
+  @media (max-width: 1024px) {
+    height: 120vh !important;
+    padding: 40px;
+
+    top: -80px;
+    left: 0;
+  }
+
+  @media (max-width: 769px) {
+    position: fixed;
+    height: 130vh !important;
+    padding: 40px;
+    width: 769px;
+    top: -120px;
+    left: 0;
+
+    //top: -90px;
+    //left: -648.5px;
+    transform: translateX(0%);
+
+  }
+
+  @media (max-width: 390px) {
+    position: fixed;
+    height: 130vh !important;
+    padding: 40px;
+    width: 769px;
+    top: -110px;
+    left: -190px;
+
+    //top: -90px;
+    //left: -648.5px;
+    transform: translateX(0%);
+
+  }
+
 }
 
 .modalContent {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-  max-width: 90%;
+  padding: 70px;
+  border-radius: 15px;
+
+  width: 920px;
+  height: 900px;
   position: relative;
+
+  @media (max-width: 1024px) {
+    width: 800px !important;
+    height: 770px !important;
+    padding:  40px;
+
+    form{
+      height: 100%;
+      overflow: hidden;
+
+      .row{
+        input{
+          padding: 10px;
+        }
+      }
+
+    }
+  }
+
+  @media (max-width: 769px) {
+    width: 800px !important;
+    height: 760px !important;
+    padding:  40px;
+
+    h2{
+      //display: none;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    form{
+      height: 100%;
+      overflow: hidden;
+
+      .row{
+        input{
+          padding: 10px;
+        }
+      }
+
+    }
+  }
+
+  @media (max-width: 390px) {
+    width: 350px !important;
+    height: 810px !important;
+    padding:  20px;
+
+    form{
+      height: 100%;
+      overflow: hidden;
+
+
+      .row{
+        display: flex;
+        flex-direction: column;
+        input{
+          padding: 5px;
+        }
+      }
+
+    }
+  }
+
 }
 
+.react-calendar{
+  line-height: 1em !important;
+}
+.react-calendar__tile{
+  padding: 5px  !important;
+}
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 30px;
+  right: 30px;
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 28px;
   cursor: pointer;
+
+  @media (max-width: 390px) {
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+
+  }
+
 }
 
 h2 {
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 form {
@@ -51,19 +169,34 @@ form {
 }
 
 input, select, textarea {
-  padding: 10px;
+  padding: 12px; // Slightly increased padding for input fields
   border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 8px; // Softer corner radius for inputs
+  font-size: 16px; // Larger font for better readability
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield; // Hide increment arrows in number input
 }
 
 .datePicker {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
 
   label {
     font-size: 14px;
+    color: #555;
+  }
+
+  p {
+    font-size: 14px; // Adjust selected date font size
     color: #555;
   }
 }
@@ -71,13 +204,19 @@ input, select, textarea {
 .bookButton {
   background-color: #466848;
   color: white;
-  padding: 10px;
+  padding: 12px; // Slightly larger padding
   border: none;
-  border-radius: 5px;
+  border-radius: 8px; // Softer corners for the button
   cursor: pointer;
+  font-size: 16px; // Bigger text for the button
   transition: background-color 0.3s;
 
   &:hover {
     background-color: #3b5e3c;
   }
+}
+
+.errorMessage {
+  color: red; // Error message styling
+  font-size: 14px;
 }

@@ -1,3 +1,10 @@
+.modal-open {
+  overflow-y: hidden;
+  height: 100vh; /* Блокируем прокрутку */
+  position: relative;
+}
+
+
 .burgerMenu {
   display: none;
   flex-direction: column;
@@ -34,7 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
     border-radius: 10px;
     background: var(--basic-text-white, #FFF);
     box-shadow: 0px 0px 10px 0px rgba(4, 47, 54, 0.15), 0px 241px 80px 0px rgba(4, 47, 54, 0.00),
@@ -42,8 +49,11 @@
     0px 39px 45px 0px rgba(4, 47, 54, 0.17), 0px 10px 30px 0px rgba(4, 47, 54, 0.20);
 
     li {
-      a {
-        padding: 15px 25px;
+      .nav_btn {
+
+        //padding: 15px 25px;
+        border: none;
+        background-color: white;
         color: rgba(4, 47, 54, 0.80);
         font-size: 18px;
 
@@ -52,7 +62,7 @@
         }
       }
 
-      button {
+      .btn {
         padding: 7px 14px;
         border-radius: 7px;
         background-color: #042F36;
@@ -63,17 +73,27 @@
         &:hover {
           cursor: pointer;
         }
+
+
       }
     }
-  }
-
-  span {
-    display: none;
   }
 
   &.active {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.closeIcon {
+  display: none;
+}
+
+.booking{
+  display: none;
+
+  .btn{
+    display: none ;
   }
 }
 
@@ -87,12 +107,21 @@
     ul {
       width: 900px;
       padding: 15px 15px;
-      gap: 10px;
       background-color: white;
     }
 
-    span {
+    .closeIcon {
       display: none;
+    }
+
+
+  }
+
+  .booking{
+    display: none;
+
+    .btn{
+      display: none ;
     }
   }
 }
@@ -118,19 +147,30 @@
       justify-content: center;
       flex-direction: column;
       gap: 50px;
-    }
 
-    span {
-      display: inline-block;
-      position: absolute;
-      right: 50px;
-      top: 50px;
+      li {
+        .btn {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  .booking{
+    display: block;
+
+    .btn{
+      display: block ;
     }
   }
 
   .nav.active {
     transform: translateY(0);
     opacity: 1;
+
+    .closeIcon {
+      display: inline-block; // Показываем иконку закрытия при активном меню
+    }
   }
 
   .burgerMenu {
@@ -147,5 +187,34 @@
       border-radius: 2px;
       transition: all 0.3s ease;
     }
+  }
+
+  .closeIcon {
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    z-index: 10000;
+  }
+}
+
+
+.booking {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+
+  .btn {
+    padding: 7px 14px;
+    border-radius: 7px;
+    background-color: #042F36;
+    border: none;
+    color: white;
+    font-size: 18px;
+  }
+
+
+  &:hover {
+    cursor: pointer;
   }
 }

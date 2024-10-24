@@ -1,22 +1,24 @@
 import classes from "./Event.module.scss";
 import {Link} from "react-router-dom";
 
-const Event = () => {
+const Event = (props) => {
+
+    console.log(props)
+
+    const mainPictureUrl = props.data.pictures.length > 0 ? props.data.pictures[0].picture : null;
+
     return (
         <div className={classes.Event}>
             <article>
-                <h3>official opening dua restaurant</h3>
-                <p>17.10.2024</p>
+                <h3>{props.data.title}</h3>
+                <p>{props.data.date}</p>
             </article>
             <img
-                src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+                src={mainPictureUrl}
                 alt="asxaa" width={322} height={215}/>
             <aside>
-                <p>Welcome to DUA Italian Cuisine & Steakhouse – Where tradition meets taste in a divine fusion of
-                    authentic Italian flavors and meticulously selected Zabiha Halal meats. Nestled in the heart of
-                    culinary innovation, DUA isn’t just a restaurant; it’s a destination for those who appreciate the
-                    finer nuances of Italian cuisine complemented by the purity and ethics o...</p>
-                <Link to="/">
+                <p>{props.data.description}</p>
+                <Link to={`/event/${props.data.id}`}>
                     Read
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
                         <path

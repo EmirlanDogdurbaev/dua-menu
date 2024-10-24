@@ -28,7 +28,7 @@ const Cards = () => {
     };
 
     return (
-        <main className={classes.cards}>
+        <main className={classes.cards} id="menu">
             <section>
                 <div className={classes.title}>
                     <h1>Menu</h1>

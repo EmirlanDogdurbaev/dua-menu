@@ -1,0 +1,72 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-prev-image,
+.swiper-button-next-image {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(172, 185, 187);
+  border-radius: 50%;
+  border: none;
+  color: rgba(19, 19, 19, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+//
+//.swiper-button-prev-image {
+//  left: 0px !important;
+//  top: 30% !important;
+//  position: absolute;
+//
+//  display: none;
+//
+//  &:hover {
+//    background-color: #647E82;
+//  }
+//
+//  @media (max-width: 1024px) {
+//    display: block;
+//  }
+//
+//  @media (max-width: 770px) {
+//    left: 4% !important;
+//    display: block;
+//  }
+//
+//  @media (max-width: 430px) and (min-width: 390px) {
+//    display: none;
+//  }
+//}
+//
+//.swiper-button-next-image {
+//
+//  &:hover {
+//    background-color: #647E82;
+//  }
+//
+//  @media (max-width: 1024px) {
+//    display: block;
+//  }
+//
+//  @media (max-width: 770px) {
+//    right: 4% !important;
+//    display: block;
+//  }
+//
+//  @media (max-width: 430px) and (min-width: 390px) {
+//    display: none;
+//  }
+//}

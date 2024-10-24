@@ -4,8 +4,12 @@ import location from "../../assets/images/location.png"
 import instagram from "../../assets/images/instagram.png"
 
 const Footer = () => {
-    return (<footer className={classes.footer}>
+    return (<footer className={classes.footer} id="contact">
         <div className={classes.container}>
+            <div>
+                <h1>Contacts</h1>
+                <div className={classes.small_line}></div>
+            </div>
             <article>
                 <a><img src={clock} alt="clock"/><h3>All hours</h3></a>
                 <ul>

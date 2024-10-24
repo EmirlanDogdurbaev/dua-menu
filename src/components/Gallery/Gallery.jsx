@@ -4,17 +4,13 @@ import GalleryImage from "./GalleryImage/GalleryImage.jsx";
 import classes from './Gallery.module.scss';
 import ModalSwiper from "./ModalSwiper/ModalSwiper.jsx";
 import { Navigation, Pagination } from "swiper/modules";
-
-import "./gallerySwiper.scss";
-
-const images = [
-    'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg',
-    'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg',
-    'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg',
-    'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg',
-];
+import { useDispatch, useSelector } from 'react-redux';
+import './gallerySwiper.scss';
+import {fetchGallery} from "../../store/slices/gallerySlice.js";
 
 const Gallery = () => {
+    const dispatch = useDispatch();
+    const { images, status } = useSelector((state) => state.gallery); // Получаем данные из Redux
     const [isMobileView, setIsMobileView] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -40,18 +36,22 @@ const Gallery = () => {
     }, []);
 
     useEffect(() => {
-        // Initialize Swiper after the component has mounted
-        const initSwiperNavigation = () => {
-            const swiperEl = document.querySelector('.swiper-container');
-            if (swiperEl) {
-                swiperEl.swiper.update();
-            }
-        };
-        initSwiperNavigation();
-    }, [isMobileView]);
+        if (status === 'idle') {
+            dispatch(fetchGallery()); // Запрашиваем галерею при монтировании
+        }
+    }, [dispatch, status]);
+
+    // Обработка состояний загрузки и ошибок
+    if (status === 'loading') {
+        return <p>Loading...</p>;
+    }
+
+    if (status === 'failed') {
+        return <p>Error fetching gallery images.</p>;
+    }
 
     return (
-        <div className={classes.gallery}>
+        <div className={classes.gallery} id="gallery">
             <div className={classes.inner_cont}>
                 <section>
                     <h2>Gallery</h2>
@@ -59,7 +59,7 @@ const Gallery = () => {
                 </section>
 
                 {isMobileView ? (
-                    <div className={classes.slider }>
+                    <div className={classes.slider}>
                         <Swiper
                             spaceBetween={30}
                             slidesPerView={1}
@@ -80,31 +80,27 @@ const Gallery = () => {
                             }}
                         >
                             {images.map((image, index) => (
-                                <SwiperSlide key={index}>
+                                <SwiperSlide key={image.id}>
                                     <GalleryImage
-                                        key={index}
-                                        image={image}
-                                        title={`Image ${index + 1}`}
+                                        image={image.picture} // Используйте поле изображения из Redux
+                                        title={image.title} // Используйте название изображения
+                                        onClick={() => handleCardClick(index)} // Добавьте обработчик клика для мобильного просмотра
                                     />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
 
-                        <div className="swiper-button-next-img">
-                            {/* Your SVG for next button */}
-                        </div>
-                        <div className="swiper-button-prev-img">
-                            {/* Your SVG for prev button */}
-                        </div>
+                        <div className="swiper-button-next-img"></div>
+                        <div className="swiper-button-prev-img"></div>
                     </div>
                 ) : (
                     <div className={classes.cards}>
                         {images.map((image, index) => (
                             <GalleryImage
-                                key={index}
-                                image={image}
-                                title={`Image ${index + 1}`}
-                                onClick={() => handleCardClick(index)}
+                                key={image.id}
+                                image={image.picture} // Используйте поле изображения из Redux
+                                title={image.title} // Используйте название изображения
+                                onClick={() => handleCardClick(index)} // Добавьте обработчик клика для настольного просмотра
                             />
                         ))}
                     </div>
@@ -112,7 +108,7 @@ const Gallery = () => {
 
                 <ModalSwiper
                     isOpen={isModalOpen}
-                    images={images}
+                    images={images.map(img => img.picture)} // Передайте только ссылки на изображения
                     initialIndex={selectedImageIndex}
                     onClose={handleCloseModal}
                 />

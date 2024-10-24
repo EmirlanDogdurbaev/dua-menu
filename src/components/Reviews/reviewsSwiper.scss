@@ -3,7 +3,7 @@
   padding-top: 10px;
 
   @media (max-width: 1024px) {
-    height: 60vh !important;
+    height: 77vh !important;
     width: 90% !important;
   }
 
@@ -84,7 +84,7 @@
 
 .swiper-slide {
   font-size: 18px;
-  background: transparent;
+  background: transparent !important;
 
   display: flex;
   justify-content: center;
