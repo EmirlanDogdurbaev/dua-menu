@@ -32,7 +32,7 @@ const Layout = () => {
                       reviewsRef={reviewsRef}
                       galleryRef={galleryRef}
                       contactRef={contactRef}/>
-                <section>
+                <section className={classes.top}>
                     <Logo/>
                     <div ref={aboutRef}><Header/></div>
                 </section>

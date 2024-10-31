@@ -216,6 +216,10 @@
     border: none;
     color: white;
     font-size: 18px;
+    @media (max-width: 768px) {
+      background-color: white;
+      color: black;
+    }
   }
 
 
@@ -223,8 +227,12 @@
     cursor: pointer;
   }
 
+
+
   @media (max-width: 450px) {
     top: 40px;
     right: 10px;
   }
+
+
 }

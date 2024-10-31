@@ -31,6 +31,21 @@
     width: 256px;
     height: 274px;
 
+    justify-content: flex-end;
+
+    img {
+      width: 256px;
+      height: 274px;
+    }
+  }
+}
+@media (max-width: 550px) {
+  .Logo {
+    width: 256px;
+    height: 400px;
+
+    justify-content: flex-end;
+
     img {
       width: 256px;
       height: 274px;
