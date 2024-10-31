@@ -26,7 +26,6 @@
 
     p {
       color: var(--basic-text-80, rgba(4, 47, 54, 0.80));
-      font-family: Comfortaa;
       font-size: 16px;
       font-style: normal;
       font-weight: 500;
@@ -123,11 +122,10 @@
     gap: 10px;
 
     min-height: 225px !important;
-    max-height: 250px !important;
     height: auto;
     padding: 0 10px;
 
-    overflow: hidden;
+    //overflow: hidden;
 
     //border: 1px salmon solid;
 
@@ -169,13 +167,15 @@
 @media (max-width: 660px) {
   .Event {
     width: 340px !important;
-    height: 240px !important;
+    height: 400px !important;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
     //border: 1px salmon solid;
     margin: 10px auto;
+    //overflow: hidden;
+    padding: 0;
 
 
     article {
@@ -189,6 +189,7 @@
 
       h3 {
         font-size: 16px;
+        width: 300px !important;
       }
 
       p {
@@ -198,7 +199,7 @@
     }
 
     img {
-      width: 100%;
+      width: 340px;
       height: 180px;
       grid-row-start: 2;
     }

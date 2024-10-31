@@ -74,7 +74,7 @@ const Events = () => {
                     pagination={{clickable: true}}
                 >
                     {groupedEvents.map((eventGroup, index) => (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide key={index} className="swiper-slide1">
                             <div
                                 className="eventsSwiper-item">
                                 {eventGroup.map(event => (
