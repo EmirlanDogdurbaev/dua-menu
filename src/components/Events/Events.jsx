@@ -1,9 +1,7 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import Event from "./Event/Event.jsx";
 import classes from "./Events.module.scss";
 import {Swiper, SwiperSlide} from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -34,7 +32,6 @@ const Events = () => {
         return <p>Error: {error}</p>;
     }
 
-    // Группировка событий по 3
     const groupedEvents = [];
     for (let i = 0; i < events.length; i += 3) {
         groupedEvents.push(events.slice(i, i + 3));
@@ -46,31 +43,6 @@ const Events = () => {
             <section>
                 <h2>Events</h2>
                 <div className={classes.line}/>
-            </section>
-
-            <div  className="test">
-                <Swiper
-                    direction="horizontal"
-                    navigation={{
-                        nextEl: '.swiper-button-next-events',
-                        prevEl: '.swiper-button-prev-events',
-                    }}
-                    modules={[Navigation, Pagination]}
-                    className="eventsSwiper"
-                    pagination={{ clickable: true }}
-                >
-                    {groupedEvents.map((eventGroup, index) => (
-                        <SwiperSlide key={index}>
-                            <div
-                                className="eventsSwiper-item" >
-                                {eventGroup.map(event => (
-                                    <Event key={event.id} data={event}/>
-                                ))}
-                            </div>
-
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
                 <div className="swiper-button-next-events">
                     <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="30" height="30" rx="15" fill="white" fillOpacity="0.3"/>
@@ -88,6 +60,32 @@ const Events = () => {
                             fill="#042F36" fillOpacity="0.8"/>
                     </svg>
                 </div>
+            </section>
+
+            <div className="test">
+                <Swiper
+                    direction="horizontal"
+                    navigation={{
+                        nextEl: '.swiper-button-next-events',
+                        prevEl: '.swiper-button-prev-events',
+                    }}
+                    modules={[Navigation, Pagination]}
+                    className="eventsSwiper"
+                    pagination={{clickable: true}}
+                >
+                    {groupedEvents.map((eventGroup, index) => (
+                        <SwiperSlide key={index}>
+                            <div
+                                className="eventsSwiper-item">
+                                {eventGroup.map(event => (
+                                    <Event key={event.id} data={event}/>
+                                ))}
+                            </div>
+
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
             </div>
         </div>
     );

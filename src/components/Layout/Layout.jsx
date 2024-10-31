@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/prop-types
 import Nav from "../Nav/Nav.jsx";
 import Header from "../Header/Header.jsx";
 import classes from "./Layout.module.scss";
@@ -7,11 +6,9 @@ import Events from "../Events/Events.jsx";
 import Cards from "../Cards/Cards.jsx";
 import Reviews from "../Reviews/Reviews.jsx";
 import Gallery from "../Gallery/Gallery.jsx";
-import Reserve from "../Reserve/Reserve.jsx";
 import Footer from "../Footer/Footer.jsx";
 import {useRef} from "react";
 
-// eslint-disable-next-line react/prop-types
 const Layout = () => {
     const aboutRef = useRef(null);
     const eventsRef = useRef(null);

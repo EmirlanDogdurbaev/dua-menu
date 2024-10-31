@@ -1,8 +1,7 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import classes from "./Reviews.module.scss";
 import {Swiper, SwiperSlide} from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

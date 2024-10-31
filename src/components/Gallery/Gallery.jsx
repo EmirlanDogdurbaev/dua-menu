@@ -17,7 +17,6 @@ const Gallery = () => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
     const handleCardClick = (index) => {
-        // Открываем модальное окно только если не мобильное устройство
         if (!isMobileView) {
             setSelectedImageIndex(index);
             setModalOpen(true);

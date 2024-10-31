@@ -39,11 +39,13 @@ const Cards = () => {
             <LoadingError loading={loading} error={error}/>
 
             {!loading && !error && (
-                <CategorySlider
-                    categories={categories}
-                    selectedCategory={selectedCategory}
-                    onSelectCategory={handleCategoryClick}
-                />
+               <div style={{backgroundColor:"#042F36"}}>
+                   <CategorySlider
+                       categories={categories}
+                       selectedCategory={selectedCategory}
+                       onSelectCategory={handleCategoryClick}
+                   />
+               </div>
             )}
 
             {selectedCategory && selectedCategory.meals.length > 0 && (

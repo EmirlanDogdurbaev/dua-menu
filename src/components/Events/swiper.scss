@@ -3,78 +3,38 @@
   position: relative;
   padding-top: 10px;
   height: 80%;
-
 }
 
 .test {
   width: 100%;
   height: 100vh !important;
   position: relative;
-
-  @media (max-width: 1440px) {
-    height: 80vh !important;
-  }
-  @media (max-width: 1280px) {
-    height: 100vh !important;
-    gap: 40px;
-    justify-content: center;
-  }
-  @media (max-width: 1024px) {
-    height: 110vh !important;
-    gap: 40px;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    height: 115vh !important;
-  }
-  @media (max-width: 450px) {
-    height: 160vh !important;
-
-    //align-items: flex-start !important;
-    justify-content: flex-start !important;
-  }
-  @media (max-width: 390px) {
-    height: 170vh !important;
-  }
-
-
 }
+
 .eventsSwiper-item {
   gap: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
   @media (max-width: 1280px) {
-    height: 100vh !important;
     gap: 40px;
-    justify-content: center;
   }
   @media (max-width: 1024px) {
-    height: 110vh !important;
     gap: 40px;
-    justify-content: center;
   }
 
   @media (max-width: 768px) {
-    height: 115vh !important;
     overflow: visible;
     gap: 20px;
   }
   @media (max-width: 450px) {
-    height: 140vh !important;
-
-    //align-items: flex-start !important;
     justify-content: flex-start !important;
   }
 
   @media (max-width: 390px) {
     gap: 20px;
-    justify-content: center;
     overflow: visible !important;
   }
 }
-
 
 
 .swiper-button-prev-events,
@@ -94,7 +54,7 @@
 .swiper-button-prev-events {
   left: 46% !important;
   position: absolute;
-  top: 30px;
+  bottom: 30px;
   transform: translateY(-50%);
 
   &::after {
@@ -106,12 +66,12 @@
   }
   @media (max-width: 450px) {
     right: 30% !important;
-    top: 20px;
+    bottom: 20px;
     display: none;
   }
   @media (max-width: 390px) {
     left: 37% !important;
-    top: 20px;
+    bottom: 20px;
   }
 
 }
@@ -120,7 +80,7 @@
 .swiper-button-next-events {
   right: 46% !important;
   position: absolute;
-  top: 30px;
+  bottom: 30px;
   transform: translateY(-50%);
 
 
@@ -129,7 +89,7 @@
   }
   @media (max-width: 450px) {
     right: 32% !important;
-    top: 20px;
+    bottom: 20px;
     display: none;
   }
 
