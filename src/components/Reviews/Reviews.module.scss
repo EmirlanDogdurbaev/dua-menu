@@ -4,7 +4,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-image: url("../../assets/images/reviews_bg.svg");
+  background-image: url("../../assets/images/reviews_bg.svg") !important;
   background-size: cover;
   background-position: center;
   align-items: center;
