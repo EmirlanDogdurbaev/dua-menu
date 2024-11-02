@@ -20,6 +20,10 @@
     width: 600px !important;
     height: 700px !important;
   }
+  @media (max-width: 2560px) {
+    width: 500px !important;
+    height: 550px !important;
+  }
 
   @media (max-width: 1440px) {
     width: 372px !important;

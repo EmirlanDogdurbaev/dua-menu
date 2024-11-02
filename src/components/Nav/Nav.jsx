@@ -40,7 +40,7 @@ const Nav = ({ onScrollToSection, aboutRef, eventsRef, menuRef, reviewsRef, gall
 
             <div className={classes.booking}>
                 <button className={classes.btn} onClick={openReserveModal}>
-                    Reserve
+                    Reservation
                 </button>
                 <Reserve isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <CustomCalendar/>
