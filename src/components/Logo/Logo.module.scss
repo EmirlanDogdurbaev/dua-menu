@@ -1,6 +1,6 @@
 .Logo {
   width: 480px;
-  height: 100vh;
+  flex-grow: 1;
   background: #042F36;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,11 @@
     width: 480px;
     height: 514.214px;
     flex-shrink: 0;
+    
+    @media (max-width: 2560px) {
+      width: 700px;
+      height: 700px;
+    }
   }
 }
 

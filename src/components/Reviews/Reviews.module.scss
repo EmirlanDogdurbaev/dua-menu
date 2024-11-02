@@ -11,6 +11,12 @@
   z-index: 2;
   padding: 40px 0 20px;
 
+  @media (max-width: 2560px) { height: 70vh}
+  @media (max-width: 1920px) { height: 80vh}
+  @media (max-width: 1440px) { height: 100vh}
+
+
+
   section {
     padding: 20px 0;
     display: flex;
@@ -34,7 +40,7 @@
   }
 
   .swiper_cont {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: relative;
     background-color: transparent;

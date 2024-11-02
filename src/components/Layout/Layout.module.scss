@@ -1,23 +1,21 @@
 .Layout {
-  max-width: 1440px;
+  max-width: 2560px;
   margin: 0 auto;
-  height: 100%;
+  max-height: 750px;
   display: flex;
   flex-direction: column;
 
 
   .navbar {
-
     position: relative;
     background-color: #042F36;
     width: 100%;
     height: 100%;
 
-    section {
+   .top{
       display: flex;
       width: 100%;
       overflow: hidden;
-
     }
   }
 }
@@ -25,7 +23,7 @@
 @media (max-width: 768px) {
   .Layout {
     .navbar {
-      section {
+      .top {
         display: flex;
         flex-direction: column;
         align-items: center;
