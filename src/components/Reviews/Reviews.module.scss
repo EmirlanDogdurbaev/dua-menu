@@ -4,18 +4,22 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-image: url("../../assets/images/reviews_bg.svg") !important;
-  align-items: center;
+  background-image: url("../../assets/images/reviews_bg.svg");
   background-size: cover;
   background-position: center;
+  align-items: center;
   z-index: 2;
   padding: 40px 0 20px;
 
-  @media (max-width: 2560px) { height: 70vh}
-  @media (max-width: 1920px) { height: 80vh}
-  @media (max-width: 1440px) { height: 100vh}
-
-
+  @media (max-width: 2560px) {
+    height: 80vh;
+  }
+  @media (max-width: 1920px) {
+    height: 90vh;
+  }
+  @media (max-width: 1440px) {
+    height: 100vh;
+  }
 
   section {
     padding: 20px 0;
@@ -24,7 +28,6 @@
     align-items: center;
     gap: 20px;
 
-
     h2 {
       color: white;
       font-size: 28px;
@@ -32,7 +35,7 @@
     }
 
     .line {
-      width: 170px !important;
+      width: 170px;
       height: 4px;
       border-radius: 5px;
       background-color: white;
@@ -61,7 +64,7 @@
       }
 
       .line {
-        width: 150px !important;
+        width: 150px;
       }
     }
 
@@ -73,7 +76,7 @@
     .box {
       flex-direction: row;
       gap: 20px;
-      overflow: hidden !important;
+      overflow: hidden;
     }
   }
 
@@ -86,7 +89,7 @@
       }
 
       .line {
-        width: 130px !important;
+        width: 130px;
       }
     }
 
